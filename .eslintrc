@@ -1,9 +1,12 @@
 {
   "extends": "airbnb",
   "rules": {
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "import/prefer-default-export": 0
   },
-  "env": {
-      "jest": true
-    }
+  "env":{
+    "es6": true,
+    "browser": true,
+    "jest": true
+  }
 }
