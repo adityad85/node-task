@@ -2,14 +2,14 @@ import debug from 'debug';
 import jwt from 'jsonwebtoken';
 import CONSTANTS from '../lib/constants';
 
-const appDebug = debug('app');
+// const appDebug = debug('app');
 
 const login = async (req, res) => {
   const { username } = req.body;
   if (!username) {
     res.send({ error: 'error' });
   }
-  appDebug(req.body);
+  // appDebug(req.body);
   const payload = {
     username,
   };

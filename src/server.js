@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import debug from 'debug';
 
 import config from './config/express';
 // import get from './get';
@@ -10,12 +9,11 @@ import appProtected from './protectedEndpoints/appProtected';
 
 dotenv.config();
 
-const appDebug = debug('app');
 const app = express();
 config(app);
+// get(app);
 
 app.get('/', (req, res) => {
-  appDebug('A response by the server');
   res.send({ message: 'heya again' });
 });
 
