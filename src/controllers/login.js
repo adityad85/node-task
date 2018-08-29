@@ -1,19 +1,12 @@
-import jwt from 'jsonwebtoken';
-import CONSTANTS from '../lib/constants';
-
+import { loginHelper } from '../helpers';
 
 const login = async (req, res) => {
-  const { username } = req.body;
-  if (!username) {
+  const { username, password } = req.body;
+  if (!username || !password) {
     res.send({ error: 'error' });
   }
-  const payload = {
-    username,
-  };
 
-  const token = jwt.sign(payload, CONSTANTS.JWT_ENCRYPTION, {
-    expiresIn: CONSTANTS.JWT_EXPIRATION,
-  });
+  const token = loginHelper(username, password);
 
   res.json({
     success: true,

@@ -1,10 +1,8 @@
-// const rfc6902 = require('rfc6902');
-import jsonpatch from 'jsonpatch';
+import patchJSON from '../helpers';
 
 const patchObject = (req, res) => {
   const { object, patch } = req.body;
-  const receivedObj = JSON.parse(object);
-  const updatedObj = jsonpatch.apply_patch(receivedObj, patch);
+  const updatedObj = patchJSON(object, patch);
   res.send({ success: true, updatedObj });
 };
 

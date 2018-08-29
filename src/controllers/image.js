@@ -1,26 +1,14 @@
-import request from 'request';
-import { transformImage } from '../helpers';
-import { imageConstants } from '../lib/otherConstants';
-
-const streamImage = (url) => {
-  const data = request(url);
-  return data;
-};
-
+import { transformImage, streamImage, getTransformationDetails } from '../helpers';
 
 const sendImage = (req, res) => {
   const { url, format } = req.query;
-  const finalFormat = format || imageConstants.IMAGE_TYPE;
 
-  const transformationDetails = {
-    format: finalFormat,
-    width: imageConstants.WIDTH,
-    height: imageConstants.HEIGHT,
-  };
+  const transformationDetails = getTransformationDetails(format);
+
   try {
     const streamedImageData = streamImage(url);
     const transformedImage = transformImage(streamedImageData, transformationDetails);
-    res.type(`image/${finalFormat}`);
+    res.type(`image/${transformationDetails.format}`);
     transformedImage.pipe(res);
   } catch (error) {
     res.json({ error: error.message });
@@ -30,5 +18,4 @@ const sendImage = (req, res) => {
 
 export default {
   sendImage,
-  streamImage,
 };
