@@ -1,5 +1,5 @@
-describe('test', () => {
-  it('true to be true', () => {
+describe('check if image comptroller gives the right results', () => {
+  it('', () => {
     expect(true).toBe(true);
   });
 });

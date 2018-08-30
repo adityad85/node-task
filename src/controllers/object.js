@@ -1,4 +1,4 @@
-import patchJSON from '../helpers';
+import { patchJSON } from '../helpers';
 
 const patchObject = (req, res) => {
   const { object, patch } = req.body;
