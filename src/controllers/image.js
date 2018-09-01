@@ -1,5 +1,11 @@
 import { transformImage, streamImage, getTransformationDetails } from '../helpers';
 
+/**
+ * This function handles the image sending from the API
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
 const sendImage = (req, res) => {
   const { url, format } = req.query;
 

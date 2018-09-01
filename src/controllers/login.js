@@ -1,5 +1,11 @@
 import { loginHelper } from '../helpers';
 
+/**
+ * This function handles the user login
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 const login = async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
