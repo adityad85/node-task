@@ -26,7 +26,7 @@ const transformImage = (data, { format, width, height }) => {
   if (format) {
     transform = transform.toFormat(format);
   }
-  if (width || height) {
+  if (width && height) {
     transform = transform.resize(width, height);
   }
   return data.pipe(transform);

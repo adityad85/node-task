@@ -11,4 +11,5 @@ appProtected.use(URLS.home, authService.ensureAuthenticated);
 appProtected.patch(URLS.object, objectController.patchObject);
 appProtected.get(URLS.image, imageController.sendImage);
 
+
 export default appProtected;

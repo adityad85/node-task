@@ -8,8 +8,12 @@ import { patchJSON } from '../helpers';
  */
 const patchObject = (req, res) => {
   const { object, patch } = req.body;
-  const updatedObj = patchJSON(object, patch);
-  res.send({ success: true, updatedObj });
+  try {
+    const updatedObj = patchJSON(object, patch);
+    res.send({ success: true, updatedObj });
+  } catch (error) {
+    res.send({ error: error.message });
+  }
 };
 
 export default {

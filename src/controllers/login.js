@@ -10,15 +10,15 @@ const login = async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     res.send({ error: 'error' });
+  } else {
+    const token = loginHelper(username, password);
+
+    res.json({
+      success: true,
+      message: 'User Authenticated',
+      token,
+    });
   }
-
-  const token = loginHelper(username, password);
-
-  res.json({
-    success: true,
-    message: 'User Authenticated',
-    token,
-  });
 };
 
 export default {

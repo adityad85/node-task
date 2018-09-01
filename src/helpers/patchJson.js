@@ -4,7 +4,7 @@ import jsonpatch from 'jsonpatch';
  * This is a function to patch an object.
  *
  * @param {Object} object
- * @param {Object} patch
+ * @param {Array} patch
  * @returns
  */
 export const patchJSON = (object, patch) => {
